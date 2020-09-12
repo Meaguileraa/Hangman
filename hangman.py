@@ -1,98 +1,73 @@
 """Hangman game."""
 
-from random import choice
+# from random import choice
 
-class NewGame:
-    """Game for playing hangman."""
+# class NewGame:
+#     """Game for playing hangman."""
 
-    def __init__(self):
-        """Initialize variables & create board."""
+#     def __init__(self):
+#         """Initialize variables & create board."""
 
-        self.turn = 0
-        self.letter_count = 0
-        self.library = {"animals": ["tiger", "lion", "elephant", "flamingo", "gorilla", "kangaroo"], 
-                            "vegetables": ["cucumber", "tomato", "zucchini", "celery", "onion", "carrot"], 
-                            "fruits": ["apple", "pear", "apricot", "grape", "cherry", "mango"],
-                            "music genres": ["pop", "electronic", "hip hop", "jazz", "rock", "latin"]}
+#         self.turn = 0
+#         self.letter_count = 0
+#         self.library = {"animals": ["tiger", "lion", "elephant", "flamingo", "gorilla", "kangaroo"], 
+#                             "vegetables": ["cucumber", "tomato", "zucchini", "celery", "onion", "carrot"], 
+#                             "fruits": ["apple", "pear", "apricot", "grape", "cherry", "mango"],
+#                             "music genres": ["pop", "electronic", "hip hop", "jazz", "rock", "latin"]}
 
 
-    def hidden_word(self):
-        """User decides a theme and a hidden word is assigned."""
+#     def hidden_word(self):
+#         """User decides a theme and a hidden word is assigned."""
 
-        userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
+#         userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
 
-        #Random Animal
-        if userIn == "animals":
-            words = self.library["animals"]
-            hidden_word = choice(words)
-            print(hidden_word)
-        #Random Veggie
-        elif userIn == "vegetables":
-            words = self.library["vegetables"]
-            hidden_word = choice(words)
-            print(hidden_word)
-        #Random Fruit
-        elif userIn == "fruits":
-            words = self.library["fruits"]
-            hidden_word = choice(words)
-            print(hidden_word)
-        #Random Genre
-        elif userIn == "music genres":
-            words = self.library["music genres"]
-            hidden_word = choice(words)
-            print(hidden_word)
-        else:
-            print("Please select a valid theme. Try again.")
-            userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
-            print(userIn)
-            #after the second 
-        self.hidden_word()
+#         #Random Animal
+#         if userIn == "animals":
+#             words = self.library["animals"]
+#             hidden_word = choice(words)
+#             print(hidden_word)
+#         #Random Veggie
+#         elif userIn == "vegetables":
+#             words = self.library["vegetables"]
+#             hidden_word = choice(words)
+#             print(hidden_word)
+#         #Random Fruit
+#         elif userIn == "fruits":
+#             words = self.library["fruits"]
+#             hidden_word = choice(words)
+#             print(hidden_word)
+#         #Random Genre
+#         elif userIn == "music genres":
+#             words = self.library["music genres"]
+#             hidden_word = choice(words)
+#             print(hidden_word)
+#         else:
+#             print("Please select a valid theme. Try again.")
+#             userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
+#             print(userIn)
+#             #after the second 
+#         self.hidden_word()
 
-    def print_board(self):
-        """Instructions are told and hidden words empty spaces are shown."""
+#     def print_board(self):
+#         """Instructions are told and hidden words empty spaces are shown."""
 
-        self.letter_count = 0
+#         self.letter_count = 0
 
-        for letter in hidden_word:
-            self.letter_count += 1
+#         for letter in hidden_word:
+#             self.letter_count += 1
         
-        print(self.letter_count * "*")
+#         print(self.letter_count * "*")
 
-        print(self.letter_count)
+#         print(self.letter_count)
 
-        self.print_board()
+#         self.print_board()
     
-    def next_turn(self):
+#     def next_turn(self):
 
+# print("Welcome to Hangman!\n\n")
+# print("Instructions:\n- Please pick a theme and a random word will be selected\n\n\n")
+# hangman_game = NewGame()
 
-
-    # def next_turn(self):
-    # """Handles the next turn."""
-
-    # self.display_board()
-    # if self.turn == 0:
-    #     print()
-    #     self.player = "Red"
-    #     print(f"{self.player} First")
-    # else:
-    #     if (self.turn % 2) == 0:
-    #         self.player = "\n\nRed"
-    #         self.token = " X "
-    #     else:
-    #         self.player = "\n\nYellow"
-    #         self.token = " O "
-            
-    #     print(f"\n{self.player}'s Turn {self.token[1]}")
-        
-    
-    # self.player_move()
-    # self.check_win()
-    
-    # self.turn+=1
-
-print("Welcome to Hangman!\n\n")
-print("Instructions:\n- Please pick a theme and a random word will be selected\n\n\n")
-hangman_game = NewGame()
 
 
 
@@ -101,7 +76,80 @@ hangman_game = NewGame()
 
 
 
+from random import choice
 
+library = {"animals": ["tiger", "lion", "elephant", "flamingo", "gorilla", "kangaroo"], 
+                            "vegetables": ["cucumber", "tomato", "zucchini", "celery", "onion", "carrot"], 
+                            "fruits": ["apple", "pear", "apricot", "grape", "cherry", "mango"],
+                            "music genres": ["pop", "electronic", "hip hop", "jazz", "rock", "latin"]}
+
+hidden_word =""
+
+
+def hidden_word():
+    """User decides a theme and a hidden word is assigned."""
+
+    userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
+
+    #Random Animal
+    if userIn == "animals":
+        words = library["animals"]
+        hidden_word = choice(words)
+        print(hidden_word)
+    #Random Veggie
+    elif userIn == "vegetables":
+        words = library["vegetables"]
+        hidden_word = choice(words)
+        print(hidden_word)
+    #Random Fruit
+    elif userIn == "fruits":
+        words = library["fruits"]
+        hidden_word = choice(words)
+        print(hidden_word)
+    #Random Genre
+    elif userIn == "music genres":
+        words = library["music genres"]
+        hidden_word = choice(words)
+        print(hidden_word)
+    else:
+        print("Please select a valid theme. Try again.")
+        userIn = input("What theme would you like your word to be? (animals, vegetables, fruits, music genres)")
+        print(userIn)
+        #after the second 
+    
+    letter_count = 0
+    # print(hidden_word)
+
+    for letter in hidden_word:
+        letter_count += 1
+    
+    print(f"{letter_count} letters", letter_count * "[_]")
+
+
+def print_board():
+    """Instructions are told and hidden words empty spaces are shown."""
+
+
+    # print("Welcome to Hangman!\n\n")
+    # print("Instructions:\n- Please pick a theme and a random word will be selected\n\n\n")
+
+
+
+    letter_count = 0
+    # print(hidden_word)
+
+    # for letter in hidden_word:
+    #     letter_count += 1
+    
+    # print(letter_count * "*")
+
+    # print(letter_count)
+
+print_board()
+    
+    # def next_turn(self):
+
+hidden_word()
 
 
 
